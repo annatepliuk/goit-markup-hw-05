@@ -521,7 +521,7 @@ left: 50%;
 border-radius: 4px;
 width: 408px;
 min-height: 584px;
-padding: 72px 24px 24px 24px;
+padding: 24px;
 box-shadow: 
 0 1px 1px 0 rgba(0, 0, 0, 0.14),
 0 1px 3px 0 rgba(0, 0, 0, 0.12),
@@ -660,31 +660,46 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
         position: absolute;
         opacity: 0;
         pointer-events: none;
-    }
-    .checkbox-label {
-        position: relative;
-        cursor:pointer;
-        font-size: 12px;
-        line-height: 1.17;
-        letter-spacing: 0.04em;
-        color: var(--light-slate);
+      }
+      
+      .checkbox-label {
         display: inline-flex;
         align-items: center;
-    }
-     .checkbox-label .privacy-policy {
-        display: inline-flex; 
-        align-items: center; 
-        justify-content: center;
-        fill: transparent;
-        border-radius: 2px;
-        border: 1px solid var(--navy-blue-modal);
-        margin-right: 8px;
+        font-size: 12px;
+        cursor: pointer;
+      }
+      
+      .privacy-policy {
         width: 16px;
         height: 16px;
-        transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-        border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
-        fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-     }
+        border: 1px solid #2e2f42;
+        border-radius: 2px;
+        margin-right: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background-color: transparent;
+        transition: background-color 250ms, border 250ms;
+      }
+      
+      .check-icon {
+        fill: white;
+        opacity: 0;
+        transition: opacity 250ms;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      
+      .form-checkbox:checked ~ .checkbox-label .privacy-policy {
+        background-color: #4d5ae5;
+        border: none;
+      }
+      
+      .form-checkbox:checked ~ .checkbox-label .check-icon {
+        opacity: 1;
+      }
      .form-link {
      line-height: 1.33;
      text-decoration: underline;
@@ -699,21 +714,8 @@ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
      color: var(--ocean);
      }
 
-     .form-checkbox:checked + .checkbox-label .privacy-policy {
-        background-color: var(--ocean); 
-        border: none;
-        fill: #f4f4fd;
-     }
-      
    
-      .check-icon {
-        fill: white;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        }
-
+     
 
 .modal-button {
 display: block; 
